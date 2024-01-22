@@ -13,6 +13,8 @@ Inicializar el proyecto: Ctrl-Shift-p -> .Net:New Project
 [Getting Started with C# in VS Code](https://code.visualstudio.com/docs/csharp/get-started)  
 [.NET SDK](https://dotnet.microsoft.com/en-us/download)  
 
+[Bibliotecas Algs4 implementadas en C#](https://github.com/angellaa/algs4)  
 
-
+[C# Documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)  
+[C# Tutorial](https://www.w3schools.com/cs/index.php)  
 

@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EA_Ejercicios", "EA_Ejercicios\EA_Ejercicios.csproj", "{9B021EAE-5F66-4144-8C72-B5360C1CE64E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algs4", "Algs4\Algs4.csproj", "{A0E754C6-96A2-4B5B-B875-828C88E658C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StdLib", "StdLib\StdLib.csproj", "{620073B1-27FC-4B37-84EB-63357055B7E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{9B021EAE-5F66-4144-8C72-B5360C1CE64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B021EAE-5F66-4144-8C72-B5360C1CE64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B021EAE-5F66-4144-8C72-B5360C1CE64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E754C6-96A2-4B5B-B875-828C88E658C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E754C6-96A2-4B5B-B875-828C88E658C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E754C6-96A2-4B5B-B875-828C88E658C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E754C6-96A2-4B5B-B875-828C88E658C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620073B1-27FC-4B37-84EB-63357055B7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620073B1-27FC-4B37-84EB-63357055B7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620073B1-27FC-4B37-84EB-63357055B7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620073B1-27FC-4B37-84EB-63357055B7E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
