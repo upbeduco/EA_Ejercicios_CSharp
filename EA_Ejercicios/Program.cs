@@ -1,4 +1,6 @@
 ﻿using EA_UPB;
 
-Fecha.Main();
+// Fecha.Main();
 
+Punto2DCartesiano.UnitTests();
+Punto2DCartesiano.Main();
