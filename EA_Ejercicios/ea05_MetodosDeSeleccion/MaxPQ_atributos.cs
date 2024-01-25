@@ -27,7 +27,7 @@ namespace EA_UPB
     }
 
 
-    static void maxPorEdad(Mascota[] pets)
+    static void MaxPorEdad(Mascota[] pets)
     {
         MaxPQ<Mascota> pq = new MaxPQ<>(new ComparatorEdad());
         for (Mascota m: pets)
@@ -36,7 +36,7 @@ namespace EA_UPB
     }
 
 
-    static void maxPorPeso(Mascota[] pets)
+    static void MaxPorPeso(Mascota[] pets)
     {
         Comparator<Mascota> comparadorPeso = (m1, m2)-> {
             float diff = m1.getPeso() - m2.getPeso();
@@ -51,7 +51,7 @@ namespace EA_UPB
     }
 
 
-    public static void main(String[] args)
+    public static void Main()
     {
         Mascota[] mascotas = {
             new Mascota("Firulais", 15.3f, 2),
