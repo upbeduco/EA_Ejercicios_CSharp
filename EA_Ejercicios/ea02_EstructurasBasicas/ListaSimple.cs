@@ -1,8 +1,9 @@
+using System.Collections;
 using System.Diagnostics;
 
 namespace EA_UPB {
 
-    class ListaSimple<T> 
+    class ListaSimple<T> : IEnumerable<T>
     {
 
         private class Nodo
@@ -63,6 +64,37 @@ namespace EA_UPB {
 
         /** Dividir una lista en dos mitades */
         public ListaSimple<T>[] splitList() { return null; }
+
+        /** 
+         * Implementacion del iterador para la ListaSimple
+         */
+        public IEnumerator<T> GetEnumerator()
+        {
+            for(Nodo pos = first; pos!=null; pos=pos.sig) {
+                yield return pos.item;
+            }
+            
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public static void Demo()
+        {
+            ListaSimple<string> lista = new ListaSimple<string>();
+            lista.AddHead("Hola");
+            lista.AddHead("Mundo");
+            Console.WriteLine($"lista.size() = {lista.size()}");
+
+            foreach(string w in lista)
+                Console.WriteLine(w);
+            
+
+
+        }
 
     }
 
