@@ -1,16 +1,22 @@
-﻿using EA_UPB;
+﻿using Algs4;
+using EA_UPB;
 
 // Fecha.Main();
 
 // Punto2DCartesiano.UnitTests();
 // Punto2DCartesiano.Main();
 
-// ListaSimple<string>.Demo();
+// ListaSimple<string>.Demo();  // Ejemplo de operacion
+// ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
 
 // ThreeSum.Main();
 
 // GeneradorADTs.Main();
-OrdenarADTs.Main();
+// OrdenarADTs.Main();
+
+// MaxPQ<string>.UnitTests();   // NOTE: Unit tests fail for int type
+Mascota.Main();
+
 
 
 

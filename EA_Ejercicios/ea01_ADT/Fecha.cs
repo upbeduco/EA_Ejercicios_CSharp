@@ -1,15 +1,25 @@
 namespace EA_UPB {
 
     class Fecha {
-        private int dia;
-        private int mes;
-        private int año;
+        private int _dia;
+        private int _mes;
+        private int _año;
 
         public Fecha(int año, int mes, int dia) 
         {
-            this.año = año;
-            this.mes = mes;
-            this.dia = dia;
+            this._año = año;
+            this._mes = mes;
+            this._dia = dia;
+        }
+
+        public int Dia {
+            get => _dia;
+        }
+        public int Mes {
+            get => _mes;
+        }
+        public int Año {
+            get => _año;
         }
 
         public override bool Equals(Object? obj)
@@ -17,12 +27,12 @@ namespace EA_UPB {
             if (obj==null) return false;
             if (this.GetType()!=obj.GetType()) return false;
             Fecha other = (Fecha) obj;
-            return this.año==other.año && this.mes==other.mes && this.dia==other.dia;
+            return this.Año==other.Año && this.Mes==other.Mes && this.Dia==other.Dia;
         }
 
         public override string ToString()
         {
-            return this.año+"-"+this.mes+"-"+this.dia;
+            return this.Año+"-"+this.Mes+"-"+this.Dia;
         }
 
         public override int GetHashCode()

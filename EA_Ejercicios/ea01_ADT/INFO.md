@@ -1,4 +1,9 @@
 
+## ADTs
+[Using properties -- Para definir atributos de un ADT](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties)  
+[]()  
+
+
 ## Métodos heredados de Object
 [Object.ToString](https://learn.microsoft.com/en-us/dotnet/api/system.object.tostring?view=net-8.0)  
 [Object.Equals](https://learn.microsoft.com/en-us/dotnet/api/system.object.equals?view=net-8.0#system-object-equals(system-object))  

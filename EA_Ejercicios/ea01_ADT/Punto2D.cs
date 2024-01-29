@@ -13,41 +13,44 @@ namespace EA_UPB {
 
     class Punto2DCartesiano : IPunto2D
     {
-        private double x;
-        private double y;
+        private double _x;
+        private double _y;
 
         const double TOLERANCE = 1E-8;
 
         public Punto2DCartesiano()
         {
-            x=0.0;
-            y=0.0;
+            _x=0.0;
+            _y=0.0;
         }
 
         public Punto2DCartesiano(double x, double y)
         {
-            this.x = x;
-            this.y = y;
+            this._x = x;
+            this._y = y;
         }
 
         public double distancia(IPunto2D punto)
         {
-            return Math.Sqrt((x-punto.GetX())*(x-punto.GetX())+(y-punto.GetY())*(y-punto.GetY()));
+            return Math.Sqrt((X-punto.GetX())*(X-punto.GetX())+(Y-punto.GetY())*(Y-punto.GetY()));
         }
 
-        public double GetX()
+        public double X
         {
-            return x;
+            get => _x;
         }
 
-        public double GetY()
+        public double Y
         {
-            return y;
+            get => _y;
         }
+
+        public double GetX() { return X; }
+        public double GetY() { return Y; }
 
         public override string ToString()
         {
-            return $"({x},{y})";
+            return $"({X},{Y})";
         }
 
         public override bool Equals(Object? obj)
