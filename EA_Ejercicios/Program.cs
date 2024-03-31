@@ -9,13 +9,16 @@ using EA_UPB;
 // ListaSimple<string>.Demo();  // Ejemplo de operacion
 // ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
 
+// ListaDoble<string>.Demo();  // Ejemplo de operacion
+ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
+
 // ThreeSum.Main();
 
 // GeneradorADTs.Main();
 // OrdenarADTs.Main();
 
 // MaxPQ<string>.UnitTests();   // NOTE: Unit tests fail for int type
-Mascota.Main();
+// Mascota.Main();
 
 
 
