@@ -1,7 +1,7 @@
 ﻿using Algs4;
 using EA_UPB;
 
-// Fecha.Main();
+Fecha.Main();
 
 // Punto2DCartesiano.UnitTests();
 // Punto2DCartesiano.Main();
@@ -10,7 +10,7 @@ using EA_UPB;
 // ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
 
 // ListaDoble<string>.Demo();  // Ejemplo de operacion
-ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
+// ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
 
 // ThreeSum.Main();
 
