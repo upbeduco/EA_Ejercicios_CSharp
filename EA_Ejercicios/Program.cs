@@ -3,8 +3,8 @@ using EA_UPB;
 
 Fecha.Main();
 
-// Punto2DCartesiano.UnitTests();
-// Punto2DCartesiano.Main();
+Punto2DCartesiano.UnitTests();
+Punto2DCartesiano.Main();
 
 // ListaSimple<string>.Demo();  // Ejemplo de operacion
 // ListaSimple<string>.Main();     // Ejecutar pruebas unitarias
