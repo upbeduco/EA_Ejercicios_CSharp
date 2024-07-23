@@ -10,7 +10,7 @@
 
 # If running Ubuntu
 declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
-# If runnint Mint
+# If running Mint
 repo_version="22.04"
 
 # Download Microsoft signing key and repository
