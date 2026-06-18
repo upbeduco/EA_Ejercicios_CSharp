@@ -6,6 +6,8 @@ This is an educational set of examples and exercises in C# about data structures
 
 - When implementing ADTs, always ensure proper encapsulation.
 - ADTs should provide basic tests of their methods in their own `Main` method using `Debug.Assert()`. Do not use other testing frameworks. Each ADT's `Main` method should include at least 3-5 assert statements covering normal cases, edge cases (e.g., empty structures), and error conditions.
+- The actual program entry point is the top-level-statement file `EA_Ejercicios/Program.cs`; the per-class `Main` (and `Demo`/`UnitTests`) methods are test drivers invoked from there. Because each per-class `Main` is also a valid entry-point signature, the compiler emits warning `CS7022` for them — this is expected and harmless given the top-level `Program.cs`. Prefer `UnitTests()` / `Demo()` for new drivers to avoid the noise.
+- Use C# keyword type aliases (`bool`, `string`, `object`, `int`), never the BCL names (`Boolean`, `String`, `Object`). Documentation comments must be C# XML doc comments (`///`), not Java-style `/** */`; use `<summary>`/`<param>`/`<returns>`/`<exception>`, not Javadoc tags (`@param`, `{@code}`, `@throws`).
 - To test expected exceptions, use the following pattern:
 
   ```csharp
@@ -50,5 +52,5 @@ This is an educational set of examples and exercises in C# about data structures
 ## Documentation and Collaboration
 
 - Enhance XML documentation: include `<param>`, `<returns>`, and `<exception>` tags for all public methods, plus brief examples in `<example>` or `<code>` blocks. For classes, add a `<summary>` with a high-level description of the ADT's purpose and invariants.
-- When proposing code changes, reference relevant exercises (e.g., from [ea02_EstructurasBasicas/EXERCISES.md](ea02_EstructurasBasicas/EXERCISES.md)) and explain algorithmic choices to aid learning.
+- When proposing code changes, reference relevant exercises (these live in each module's `INFO.md` and in the `// Ejercicios:` comment blocks at the bottom of the sample files) and explain algorithmic choices to aid learning.
 - If generating new files or features, ensure they fit the project's educational scope—focus on fundamental data structures without over-engineering.

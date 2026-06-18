@@ -12,7 +12,7 @@ namespace EA_UPB
             pila = new string[max];
         }
 
-        public void Push(String s)
+        public void Push(string s)
         {
             // TODO: Implementar el método
         }

@@ -7,7 +7,7 @@ namespace EA_UPB {
         const double bb=3;
         char c='A';
         string d = "Hello World";
-        Boolean e = true;
+        bool e = true;
 
     }
 

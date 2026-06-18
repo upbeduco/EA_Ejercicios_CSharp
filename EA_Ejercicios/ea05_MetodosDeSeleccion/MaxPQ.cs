@@ -1,12 +1,14 @@
 using System.Diagnostics;
 
-namespace Algs4
+namespace EA_UPB
 {
 
-    /**
-     * MaxPQ : Implementacion de la cola de Maxima Prioridad
-     *         Traducida del original en Java del texto de Sedgewick & Wayne
-     */
+    /// <summary>
+    /// MaxPQ: Implementacion de la cola de Maxima Prioridad (max-heap binario).
+    /// Traducida del original en Java del texto de Sedgewick &amp; Wayne.
+    /// </summary>
+    /// <typeparam name="Key">Tipo de las llaves; debe ser comparable (vía
+    /// <see cref="IComparable{T}"/>) o proveerse un <see cref="IComparer{T}"/>.</typeparam>
     class MaxPQ<Key>
     {
 
@@ -14,31 +16,25 @@ namespace Algs4
         private int n;                       // number of items on priority queue
         private IComparer<Key>? comparator;  // optional comparator
 
-        /**
-         * Initializes an empty priority queue with the given initial capacity.
-         *
-         * @param  initCapacity the initial capacity of this priority queue
-         */
+        /// <summary>
+        /// Inicializa una cola de prioridad vacía con la capacidad inicial dada.
+        /// </summary>
+        /// <param name="initCapacity">Capacidad inicial de la cola.</param>
         public MaxPQ(int initCapacity)
         {
             pq = new Key[initCapacity + 1];
             n = 0;
         }
 
-        /**
-         * Initializes an empty priority queue.
-         */
-        // public MaxPQ() {
-        //     MaxPQ<T>(1);
-        // }
+        // Initializes an empty priority queue.
+        // public MaxPQ() : this(1) { }
 
-        /**
-         * Initializes an empty priority queue with the given initial capacity,
-         * using the given comparator.
-         *
-         * @param  initCapacity the initial capacity of this priority queue
-         * @param  comparator the order in which to compare the keys
-         */
+        /// <summary>
+        /// Inicializa una cola de prioridad vacía con la capacidad inicial dada,
+        /// usando el comparador suministrado.
+        /// </summary>
+        /// <param name="initCapacity">Capacidad inicial de la cola.</param>
+        /// <param name="comparator">Orden en el que se comparan las llaves.</param>
         public MaxPQ(int initCapacity, IComparer<Key> comparator)
         {
             this.comparator = comparator;
@@ -46,23 +42,22 @@ namespace Algs4
             n = 0;
         }
 
-        /**
-         * Initializes an empty priority queue using the given comparator.
-         *
-         * @param  comparator the order in which to compare the keys
-         */
+        /// <summary>
+        /// Inicializa una cola de prioridad vacía usando el comparador suministrado.
+        /// </summary>
+        /// <param name="comparator">Orden en el que se comparan las llaves.</param>
         public MaxPQ(IComparer<Key> comparator) {
             this.comparator = comparator;
             pq = new Key[101];
             n = 0;
         }
 
-        /**
-         * Initializes a priority queue from the array of keys.
-         * Takes time proportional to the number of keys, using sink-based heap construction.
-         *
-         * @param  keys the array of keys
-         */
+        /// <summary>
+        /// Inicializa una cola de prioridad a partir del arreglo de llaves.
+        /// Toma tiempo proporcional al número de llaves usando construcción de heap
+        /// basada en sink.
+        /// </summary>
+        /// <param name="keys">El arreglo de llaves.</param>
         public MaxPQ(Key[] keys)
         {
             n = keys.Length;
@@ -76,36 +71,24 @@ namespace Algs4
 
 
 
-        /**
-         * Returns true if this priority queue is empty.
-         *
-         * @return {@code true} if this priority queue is empty;
-         *         {@code false} otherwise
-         */
+        /// <summary>Retorna true si esta cola de prioridad está vacía.</summary>
         public bool IsEmpty()
         {
             return n == 0;
         }
 
-        /**
-         * Returns the number of keys on this priority queue.
-         *
-         * @return the number of keys on this priority queue
-         */
+        /// <summary>Retorna el número de llaves en esta cola de prioridad.</summary>
         public int Size()
         {
             return n;
         }
 
-        /**
-         * Returns a largest key on this priority queue.
-         *
-         * @return a largest key on this priority queue
-         * @throws NoSuchElementException if this priority queue is empty
-         */
+        /// <summary>Retorna una de las llaves máximas de esta cola de prioridad.</summary>
+        /// <returns>Una de las llaves máximas.</returns>
+        /// <exception cref="InvalidOperationException">Si la cola de prioridad está vacía.</exception>
         public Key? Max()
         {
-            if (IsEmpty() || pq[1]==null) throw new Exception("Priority queue underflow");
+            if (IsEmpty() || pq[1]==null) throw new InvalidOperationException("Priority queue underflow");
             return pq[1];
         }
 
@@ -122,11 +105,8 @@ namespace Algs4
         }
 
 
-        /**
-         * Adds a new key to this priority queue.
-         *
-         * @param  x the new key to add to this priority queue
-         */
+        /// <summary>Agrega una nueva llave a esta cola de prioridad.</summary>
+        /// <param name="x">La nueva llave a agregar.</param>
         public void Insert(Key x)
         {
 
@@ -135,19 +115,16 @@ namespace Algs4
 
             // add x, and percolate it up to maintain heap invariant
             pq[++n] = x;
-            swim(n);
+            Swim(n);
             Debug.Assert(IsMaxHeap());
         }
 
-        /**
-         * Removes and returns a largest key on this priority queue.
-         *
-         * @return a largest key on this priority queue
-         * @throws NoSuchElementException if this priority queue is empty
-         */
+        /// <summary>Remueve y retorna una de las llaves máximas de esta cola de prioridad.</summary>
+        /// <returns>Una de las llaves máximas.</returns>
+        /// <exception cref="InvalidOperationException">Si la cola de prioridad está vacía.</exception>
         public Key? DelMax()
         {
-            if (IsEmpty()) throw new Exception("Priority queue underflow");
+            if (IsEmpty()) throw new InvalidOperationException("Priority queue underflow");
             Key? max = pq[1];
             Exch(1, n--);
             Sink(1);
@@ -162,9 +139,9 @@ namespace Algs4
          * Helper functions to restore the heap invariant.
          ***************************************************************************/
 
-        private void swim(int k)
+        private void Swim(int k)
         {
-            while (k > 1 && less(k / 2, k))
+            while (k > 1 && Less(k / 2, k))
             {
                 Exch(k / 2, k);
                 k = k / 2;
@@ -176,8 +153,8 @@ namespace Algs4
             while (2 * k <= n)
             {
                 int j = 2 * k;
-                if (j < n && less(j, j + 1)) j++;
-                if (!less(k, j)) break;
+                if (j < n && Less(j, j + 1)) j++;
+                if (!Less(k, j)) break;
                 Exch(k, j);
                 k = j;
             }
@@ -186,15 +163,15 @@ namespace Algs4
         /***************************************************************************
          * Helper functions for compares and swaps.
          ***************************************************************************/
-        private bool less(int i, int j)
+        private bool Less(int i, int j)
         {
             if (comparator == null)
             {
-                return ((IComparable<Key>)pq[i]).CompareTo(pq[j]) < 0;
+                return ((IComparable<Key>)pq[i]!).CompareTo(pq[j]) < 0;
             }
             else
             {
-                return comparator.Compare(pq[i], pq[j]) < 0;
+                return comparator.Compare(pq[i]!, pq[j]!) < 0;
             }
         }
 
@@ -208,7 +185,7 @@ namespace Algs4
         // is pq[1..n] a max heap?
         private bool IsMaxHeap()
         {
-            // printHeap();
+            // PrintHeap();
             for (int i = 1; i <= n; i++)
             {
                 if (pq[i] == null) return false;
@@ -227,12 +204,12 @@ namespace Algs4
             if (k > n) return true;
             int left = 2 * k;
             int right = 2 * k + 1;
-            if (left <= n && less(k, left)) return false;
-            if (right <= n && less(k, right)) return false;
+            if (left <= n && Less(k, left)) return false;
+            if (right <= n && Less(k, right)) return false;
             return IsMaxHeapOrdered(left) && IsMaxHeapOrdered(right);
         }
 
-        public void printHeap() {
+        public void PrintHeap() {
             for(int i=1; i<=n; i++)
                 Console.WriteLine(pq[i]+", ");
         }
@@ -241,13 +218,10 @@ namespace Algs4
          * Iterator.
          ***************************************************************************/
 
-        /**
-         * Returns an iterator that iterates over the keys on this priority queue
-         * in descending order.
-         * The iterator doesn't implement {@code remove()} since it's optional.
-         *
-         * @return an iterator that iterates over the keys in descending order
-         */
+        /// <summary>
+        /// Retorna un iterador sobre las llaves de esta cola de prioridad.
+        /// </summary>
+        /// <returns>Un iterador sobre las llaves.</returns>
         public IEnumerator<Key?> Iterator()
         {
             for (int i = 0; i < pq.Length; i++)

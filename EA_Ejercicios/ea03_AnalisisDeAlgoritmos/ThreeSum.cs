@@ -1,7 +1,15 @@
+using System.Diagnostics;
+
 namespace EA_UPB {
 
     class ThreeSum
     {
+        /// <summary>
+        /// Cuenta el número de ternas (i, j, k) distintas cuyos elementos suman cero.
+        /// Time: O(n^3), Space: O(1).
+        /// </summary>
+        /// <param name="data">Arreglo de enteros a analizar.</param>
+        /// <returns>Número de ternas que suman cero.</returns>
         public static int Count(int[] data)
         {
             int count = 0;
@@ -22,11 +30,11 @@ namespace EA_UPB {
 
             for(int i=0; i<data.Length; i++)
                 data[i] = rand.Next(-100,100);
-            
-            long inicio = Environment.TickCount64;
+
+            Stopwatch sw = Stopwatch.StartNew();
             int c = Count(data);
-            long fin = Environment.TickCount;
-            Console.WriteLine($"Se encontraron {c} ternas en {fin-inicio} msec");
+            sw.Stop();
+            Console.WriteLine($"Se encontraron {c} ternas en {sw.ElapsedMilliseconds} msec");
         }
     }
 

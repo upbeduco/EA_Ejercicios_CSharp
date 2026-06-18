@@ -1,9 +1,11 @@
 using System.Diagnostics;
-using System.Reflection;
-using System.Reflection.Metadata;
 
 namespace EA_UPB {
 
+    /// <summary>
+    /// Interfaz de un punto en el plano 2D, independiente de su representación
+    /// (cartesiana o polar).
+    /// </summary>
     interface IPunto2D
     {
         double GetX();
@@ -11,6 +13,9 @@ namespace EA_UPB {
         double distancia(IPunto2D punto);
     }
 
+    /// <summary>
+    /// Punto 2D en representación cartesiana (x, y).
+    /// </summary>
     class Punto2DCartesiano : IPunto2D
     {
         private double _x;
@@ -30,6 +35,9 @@ namespace EA_UPB {
             this._y = y;
         }
 
+        /// <summary>Distancia euclidiana entre este punto y otro.</summary>
+        /// <param name="punto">El otro punto.</param>
+        /// <returns>La distancia euclidiana.</returns>
         public double distancia(IPunto2D punto)
         {
             return Math.Sqrt((X-punto.GetX())*(X-punto.GetX())+(Y-punto.GetY())*(Y-punto.GetY()));
@@ -53,7 +61,7 @@ namespace EA_UPB {
             return $"({X},{Y})";
         }
 
-        public override bool Equals(Object? obj)
+        public override bool Equals(object? obj)
         {
             if (obj==null) return false;
             if (this.GetType()!=obj.GetType()) return false;
@@ -61,6 +69,13 @@ namespace EA_UPB {
             return (this.distancia(otro)<TOLERANCE);
         }
 
+        // PREGUNTA / DISCUSIÓN:
+        // Equals considera "iguales" dos puntos cuya distancia es menor que TOLERANCE,
+        // pero GetHashCode se calcula a partir de las coordenadas exactas (ToString).
+        // ¿Por qué esto rompe el contrato Equals/GetHashCode?
+        // (Pista: dos objetos iguales DEBEN tener el mismo hash. ¿Qué ocurre si se usan
+        //  estos puntos como llaves de un Dictionary o elementos de un HashSet?)
+        // ¿Cómo se podría diseñar la igualdad y el hash de forma consistente?
         public override int GetHashCode()
         {
             return this.ToString().GetHashCode();

@@ -9,7 +9,7 @@ namespace EA_UPB
 
         private class Nodo
         {
-            public Item item;
+            public Item? item;
             public Nodo? sig;
         }
         private Nodo? first;
@@ -43,24 +43,18 @@ namespace EA_UPB
         }
 
 
-        /** 
-        * Implementacion del iterador para la PilaConLista
-        */
+        /// <summary>
+        /// Implementacion del iterador para la ColaConLista.
+        /// </summary>
         public IEnumerator<Item> GetEnumerator()
         {
             for (Nodo? pos = first; pos != null; pos = pos.sig)
             {
-                yield return pos.item;
+                yield return pos.item!;
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            for (Nodo? pos = first; pos != null; pos = pos.sig)
-            {
-                yield return pos.item;
-            }
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 
 

@@ -1,17 +1,15 @@
-using Algs4;
-
 namespace EA_UPB
 {
 
-    /**
-     *  ADT Mascota
-     */
+    /// <summary>
+    /// ADT Mascota.
+    /// </summary>
     class Mascota : IComparable<Mascota>
     {
         private string _nombre;
         private float _peso;
         private int _edad;
-        public Mascota(String n, float p, int e)
+        public Mascota(string n, float p, int e)
         {
             _nombre = n;
             _peso = p;
@@ -34,8 +32,8 @@ namespace EA_UPB
 
         public int CompareTo(Mascota? other)
         {
-            if (other == null) throw new Exception("Referencia other es nula");
-            return this.Edad - other.Edad;
+            ArgumentNullException.ThrowIfNull(other);
+            return this.Edad.CompareTo(other.Edad);
         }
 
 

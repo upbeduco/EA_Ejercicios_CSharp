@@ -36,7 +36,7 @@ namespace EA_UPB {
             get => _año;
         }
 
-        public override bool Equals(Object? obj)
+        public override bool Equals(object? obj)
         {
             if (obj==null) return false;
             if (this.GetType()!=obj.GetType()) return false;
@@ -59,7 +59,7 @@ namespace EA_UPB {
             return default;
         }
 
-        public static Boolean isLeapYear(int año) {
+        public static bool isLeapYear(int año) {
             // TODO Implementar la función de biblioteca para determinar si una año es biciesto
             return default;
         }
